@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func ExamplePaymentSource() {
+func ExamplePaymentSources() {
 	cards := []types.Card{
 		{
 			ID:         66,
@@ -38,7 +38,7 @@ func ExamplePaymentSource() {
 			Active:     true,
 		},
 	}
-	result := PaymentSource(cards)
+	result := PaymentSources(cards)
 	fmt.Println(result)
 
 	// Output: [{Card1 5555 xxxx xxxx 5555 1000000} {Card3 7777 xxxx xxxx 7777 2000000}]
