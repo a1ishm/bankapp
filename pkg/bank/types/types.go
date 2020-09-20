@@ -32,8 +32,15 @@ type Card struct {
 	Active     bool
 }
 
-// Paymet t
+// Payment t
 type Payment struct {
-	ID int
+	ID     int
 	Amount Money
+}
+
+// PaymentSource t
+type PaymentSource struct {
+	Type    string
+	Number  PAN
+	Balance Money
 }

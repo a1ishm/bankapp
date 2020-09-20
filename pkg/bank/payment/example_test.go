@@ -5,26 +5,41 @@ import (
 	"fmt"
 )
 
-func ExampleMax() {
-	payments := []types.Payment{
+func ExamplePaymentSource() {
+	cards := []types.Card{
 		{
-			ID: 66,
-			Amount: 100,
+			ID:         66,
+			PAN:        "5555 xxxx xxxx 5555",
+			Balance:    10_000_00,
+			MinBalance: 5_000_00,
+			Currency:   "TJS",
+			Color:      "Black",
+			Name:       "Card1",
+			Active:     true,
 		},
 		{
-			ID: 2,
-			Amount: 98,
+			ID:         67,
+			PAN:        "6666 xxxx xxxx 6666",
+			Balance:    -5_000_00,
+			MinBalance: -5_000_00,
+			Currency:   "TJS",
+			Color:      "Red",
+			Name:       "Card2",
+			Active:     true,
 		},
 		{
-			ID: 3,
-			Amount: 10,
-		},
-		{
-			ID: 4,
-			Amount: 99,
+			ID:         68,
+			PAN:        "7777 xxxx xxxx 7777",
+			Balance:    20_000_00,
+			MinBalance: 5_000_00,
+			Currency:   "USD",
+			Color:      "Black",
+			Name:       "Card3",
+			Active:     true,
 		},
 	}
-	
-	fmt.Println(Max(payments))
-	//Output: {66 100}
+	result := PaymentSource(cards)
+	fmt.Println(result)
+
+	// Output: [{Card1 5555 xxxx xxxx 5555 1000000} {Card3 7777 xxxx xxxx 7777 2000000}]
 }
