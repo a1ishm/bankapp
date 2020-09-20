@@ -31,8 +31,8 @@ jobs:
       - name: Test
         run: go test -v ./...
 
-      - name: Build binary for docker image
-        run: go build -v -o bank /cmd/bank
+      # - name: Build binary for docker image
+      #   run: go build -v -o bank ./cmd/bank
 
       - name: List
         run: ls -la
